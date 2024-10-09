@@ -1,10 +1,9 @@
-const CACHE_NAME = 'recipe-cache-v1';
+const CACHE_NAME = "recipe-cache-v1";
 
-// Cache responses
 const cacheFirst = async (request) => {
   const cachedResponse = await caches.match(request);
   if (cachedResponse) {
-    return cachedResponse; // Return cached response if available
+    return cachedResponse;
   }
 
   try {
@@ -14,19 +13,19 @@ const cacheFirst = async (request) => {
     cache.put(request, responseClone); // Cache the new response
     return response; // Return the fresh response
   } catch (error) {
-    console.error('Network request failed', error);
+    console.error("Network request failed", error);
     throw error;
   }
 };
 
 // Activate event to clean up old caches
-self.addEventListener('activate', (event) => {
+self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName); // Delete old caches
+            return caches.delete(cacheName);
           }
         })
       );
@@ -34,6 +33,6 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(cacheFirst(event.request));
 });
