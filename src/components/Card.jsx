@@ -14,7 +14,7 @@ const Card = ({
   servings,
 }) => {
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-gray-50 rounded-lg shadow-lg transition-transform transform hover:scale-105 flex flex-col">
+    <div className="max-w-md mx-auto p-6 bg-gray-50 rounded-lg shadow-lg transition-transform transform hover:scale-105 flex flex-col">
       <img
         src={image}
         alt={name}
