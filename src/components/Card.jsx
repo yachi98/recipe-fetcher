@@ -34,8 +34,8 @@ const Card = ({
 
       <h3 className="text-lg md:text-xl font-semibold mb-2">Ingredients:</h3>
       <ul className="list-disc list-inside mb-4 text-sm md:text-base">
-        {ingredients.map((ingredient, idx) => (
-          <li key={idx} className="text-gray-700">
+        {ingredients.map((ingredient) => (
+          <li key={ingredient.id} className="text-gray-700">
             {ingredient}
           </li>
         ))}
@@ -64,8 +64,8 @@ const Card = ({
 
       <h3 className="text-lg md:text-xl font-semibold mb-2">Instructions:</h3>
       <ol className="list-decimal list-inside text-sm md:text-base text-gray-700">
-        {instructions.map((instruction, idx) => (
-          <li key={idx} className="mb-1">
+        {instructions.map((instruction) => (
+          <li key={instruction.id} className="mb-1">
             {instruction}
           </li>
         ))}
