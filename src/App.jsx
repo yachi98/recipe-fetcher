@@ -62,7 +62,7 @@ function App() {
   };
 
   return (
-    <div className="flex p-4 justify-center gap-8">
+    <div className="flex flex-col md:flex-row p-4 justify-center gap-8">
       <div>
         <button
           className="bg-black text-white py-2 px-4 rounded-xl"
@@ -71,7 +71,7 @@ function App() {
           {showDropDown ? "Hide Recipes" : "Show Recipes"}
         </button>
         {showDropDown && (
-          <ul className="w-[250px] max-h-[300px] overflow-y-auto border rounded-xl shadow-md px-4 py-4 mt-2">
+          <ul className="w-full md:w-[250px] max-h-[300px] overflow-y-auto border rounded-xl shadow-md px-4 py-4 mt-2">
             {recipes.map((recipe, idx) => (
               <li
                 value={recipe.id}
